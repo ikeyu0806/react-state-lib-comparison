@@ -1,7 +1,11 @@
+import CreatorLists from "@/components/UseContextDemo/CreatorLists"
+
 export default function UseContextPage() {
   return (
-    <div>
-      <h1>Use Context Example</h1>
+    <div className="grid grid-cols-12 gap-4">
+      <div className="col-span-4">
+        <CreatorLists />
+      </div>
     </div>
   )
 }
