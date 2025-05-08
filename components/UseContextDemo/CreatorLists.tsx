@@ -1,4 +1,4 @@
-import CreatorCard from "./CreatorCard";
+import CreatorCard from './CreatorCard'
 
 export default function CreatorLists() {
   return (
@@ -10,5 +10,5 @@ export default function CreatorLists() {
       <CreatorCard />
       <CreatorCard />
     </div>
-  );
+  )
 }

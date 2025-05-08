@@ -1,6 +1,6 @@
-import CreatorLists from "@/components/UseContextDemo/CreatorLists"
-import CandidatesLists from "@/components/UseContextDemo/CandidatesLists"
-import CandidatesInsights from "@/components/UseContextDemo/CandidatesInsights"
+import CreatorLists from '@/components/UseContextDemo/CreatorLists'
+import CandidatesLists from '@/components/UseContextDemo/CandidatesLists'
+import CandidatesInsights from '@/components/UseContextDemo/CandidatesInsights'
 
 export default function UseContextPage() {
   return (
@@ -8,7 +8,8 @@ export default function UseContextPage() {
       <div className="col-span-12 my-4 p-4">
         <h1 className="text-2xl font-bold">UseContext Demo</h1>
         <p className="text-gray-600">
-          UseContextを使ったコンポーネントのデモです。<br />
+          UseContextを使ったコンポーネントのデモです。
+          <br />
           クリエイターを選定するためのコンポーネントです。
         </p>
       </div>
