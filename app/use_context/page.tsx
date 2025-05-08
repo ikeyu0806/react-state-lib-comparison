@@ -21,11 +21,15 @@ const creatorReducer = (
   }
 }
 
+type Action =
+  | { type: 'ADD_TO_SELECTED'; creator: Creator }
+  | { type: 'REMOVE_FROM_SELECTED'; creator: Creator }
+
 export const UnselectedCreatorContext = createContext<
-  [Creator[], React.Dispatch<any>]
+  [Creator[], React.Dispatch<Action>]
 >([[], () => {}])
 export const SelectedCreatorContext = createContext<
-  [Creator[], React.Dispatch<any>]
+  [Creator[], React.Dispatch<Action>]
 >([[], () => {}])
 
 export default function UseContextPage() {
