@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { SelectedCreatorContext } from '@/app/use_context/page'
 
 export default function CandidatesInsights() {
-  const [selectedCreators, _] = useContext(SelectedCreatorContext)
+  const [selectedCreators] = useContext(SelectedCreatorContext)
 
   return (
     <div className="my-4 p-4 bg-white border border-gray-200 rounded-lg shadow-md">

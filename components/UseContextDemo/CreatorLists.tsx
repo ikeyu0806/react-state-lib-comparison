@@ -9,9 +9,7 @@ import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
 
 export default function CandidatesLists() {
-  const [selectedCreators, dispatchSelected] = useContext(
-    SelectedCreatorContext,
-  )
+  const [, dispatchSelected] = useContext(SelectedCreatorContext)
   const [unselectedCreators, dispatchUnselected] = useContext(
     UnselectedCreatorContext,
   )

@@ -12,7 +12,7 @@ export default function CandidatesLists() {
   const [selectedCreators, dispatchSelected] = useContext(
     SelectedCreatorContext,
   )
-  const [_, dispatchUnselected] = useContext(UnselectedCreatorContext)
+  const [, dispatchUnselected] = useContext(UnselectedCreatorContext)
 
   const handleRemoveFromSelected = (creator: Creator) => {
     dispatchSelected({ type: 'REMOVE_FROM_SELECTED', creator })
