@@ -1,28 +1,17 @@
-import React, { useContext } from 'react'
-import {
-  SelectedCreatorContext,
-  UnselectedCreatorContext,
-} from '@/app/use_context/page'
-import CreatorCard from './CreatorCard'
+// CandidatesLists.tsx
+
+import { useContext } from 'react'
+import { SelectedCreatorContext, UnselectedCreatorContext } from '@/app/use_context/page'
 import { Creator } from '@/types/creator'
+import CreatorCard from './CreatorCard'
 
 export default function CandidatesLists() {
-  const [selectedCreators, setSelectedCreators] = useContext(
-    SelectedCreatorContext,
-  )
-  const [unselectedCreators, setUnselectedCreators] = useContext(
-    UnselectedCreatorContext,
-  )
+  const [selectedCreators, dispatchSelected] = useContext(SelectedCreatorContext)
+  const [_, dispatchUnselected] = useContext(UnselectedCreatorContext)
 
-  const handleClick = (creator: Creator) => {
-    const newSelectedCreators = selectedCreators.filter(
-      (c) => c.name !== creator.name,
-    )
-
-    const newUnselectedCreators = [...unselectedCreators, creator]
-
-    setSelectedCreators(newSelectedCreators)
-    setUnselectedCreators(newUnselectedCreators)
+  const handleRemoveFromSelected = (creator: Creator) => {
+    dispatchSelected({ type: 'REMOVE_FROM_SELECTED', creator })
+    dispatchUnselected({ type: 'ADD_TO_SELECTED', creator })
   }
 
   return (
@@ -33,7 +22,7 @@ export default function CandidatesLists() {
           name={creator.name}
           followers={creator.followers}
           totalLikes={creator.totalLikes}
-          onClick={() => handleClick(creator)}
+          onClick={() => handleRemoveFromSelected(creator)}
           isSelected={true}
         />
       ))}
