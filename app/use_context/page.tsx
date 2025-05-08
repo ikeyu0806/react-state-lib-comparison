@@ -6,8 +6,12 @@ import CandidatesLists from '@/components/UseContextDemo/CandidatesLists'
 import CandidatesInsights from '@/components/UseContextDemo/CandidatesInsights'
 import { Creator } from '@/types/creator'
 
-export const UnselectedCreatorContext = createContext<Creator[]>([])
-export const SelectedCreatorContext = createContext<Creator[]>([])
+export const UnselectedCreatorContext = createContext<
+  [Creator[], React.Dispatch<React.SetStateAction<Creator[]>>]
+>([[], () => {}])
+export const SelectedCreatorContext = createContext<
+  [Creator[], React.Dispatch<React.SetStateAction<Creator[]>>]
+>([[], () => {}])
 
 export default function UseContextPage() {
   const [unselectedCreators, setUnselectedCreators] = useState<Creator[]>([
@@ -56,29 +60,32 @@ export default function UseContextPage() {
   ])
 
   return (
-    <UnselectedCreatorContext.Provider value={unselectedCreators}>
-      <SelectedCreatorContext.Provider value={selectedCreators}>
+    <UnselectedCreatorContext.Provider
+      value={[unselectedCreators, setUnselectedCreators]}
+    >
+      <SelectedCreatorContext.Provider
+        value={[selectedCreators, setSelectedCreators]}
+      >
         <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-12 my-4 p-4">
-          <h1 className="text-2xl font-bold">UseContext Demo</h1>
-          <p className="text-gray-600">
-            UseContextを使ったコンポーネントのデモです。
-            <br />
-            クリエイターを選定するためのコンポーネントです。
-          </p>
+          <div className="col-span-12 my-4 p-4">
+            <h1 className="text-2xl font-bold">UseContext Demo</h1>
+            <p className="text-gray-600">
+              UseContextを使ったコンポーネントのデモです。
+              <br />
+              クリエイターを選定するためのコンポーネントです。
+            </p>
+          </div>
+          <div className="col-span-4 my-4 p-4">
+            <CreatorLists />
+          </div>
+          <div className="col-span-4 my-4 p-4">
+            <CandidatesLists />
+          </div>
+          <div className="col-span-4 my-4 p-4">
+            <CandidatesInsights />
+          </div>
         </div>
-        <div className="col-span-4 my-4 p-4">
-          <CreatorLists />
-        </div>
-        <div className="col-span-4 my-4 p-4">
-          <CandidatesLists />
-        </div>
-        <div className="col-span-4 my-4 p-4">
-          <CandidatesInsights />
-        </div>
-      </div>
       </SelectedCreatorContext.Provider>
     </UnselectedCreatorContext.Provider>
-
   )
 }

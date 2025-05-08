@@ -3,7 +3,7 @@ interface CreatorCardProps {
   followers: number
   totalLikes: number
   isSelected: boolean
-  onClick: () => (event: React.MouseEvent) => void
+  onClick: () => void
 }
 
 export default function CreatorCard({

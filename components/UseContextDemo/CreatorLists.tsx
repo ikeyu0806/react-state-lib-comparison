@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import { SelectedCreatorContext } from '@/app/use_context/page'
+import { UnselectedCreatorContext } from '@/app/use_context/page'
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
 
 export default function CreatorLists() {
-  const selectedCreators = useContext<Creator[]>(SelectedCreatorContext)
+  const [UnselectedCreators] = useContext(UnselectedCreatorContext)
   return (
     <div className="my-4">
-      {selectedCreators.map((creator) => (
+      {UnselectedCreators.map((creator) => (
         <CreatorCard
           key={creator.name}
           name={creator.name}

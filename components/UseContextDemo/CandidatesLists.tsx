@@ -1,10 +1,30 @@
 import React, { useContext } from 'react'
-import { SelectedCreatorContext } from '@/app/use_context/page'
+import {
+  SelectedCreatorContext,
+  UnselectedCreatorContext,
+} from '@/app/use_context/page'
 import CreatorCard from './CreatorCard'
 import { Creator } from '@/types/creator'
 
 export default function CandidatesLists() {
-  const selectedCreators = useContext<Creator[]>(SelectedCreatorContext)
+  const [selectedCreators, setSelectedCreators] = useContext(
+    SelectedCreatorContext,
+  )
+  const [unselectedCreators, setUnselectedCreators] = useContext(
+    UnselectedCreatorContext,
+  )
+
+  const handleClick = (creator: Creator) => {
+    const newSelectedCreators = selectedCreators.filter(
+      (c) => c.name !== creator.name,
+    )
+
+    const newUnselectedCreators = [...unselectedCreators, creator]
+
+    setSelectedCreators(newSelectedCreators)
+    setUnselectedCreators(newUnselectedCreators)
+  }
+
   return (
     <div className="my-4">
       {selectedCreators.map((creator) => (
@@ -13,9 +33,7 @@ export default function CandidatesLists() {
           name={creator.name}
           followers={creator.followers}
           totalLikes={creator.totalLikes}
-          onClick={() => (event: React.MouseEvent) => {
-            console.log(event)
-          }}
+          onClick={() => handleClick(creator)}
           isSelected={true}
         />
       ))}
