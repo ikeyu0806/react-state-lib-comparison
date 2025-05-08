@@ -1,13 +1,20 @@
 // CandidatesLists.tsx
 
 import { useContext } from 'react'
-import { SelectedCreatorContext, UnselectedCreatorContext } from '@/app/use_context/page'
+import {
+  SelectedCreatorContext,
+  UnselectedCreatorContext,
+} from '@/app/use_context/page'
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
 
 export default function CandidatesLists() {
-  const [selectedCreators, dispatchSelected] = useContext(SelectedCreatorContext)
-  const [unselectedCreators, dispatchUnselected] = useContext(UnselectedCreatorContext)
+  const [selectedCreators, dispatchSelected] = useContext(
+    SelectedCreatorContext,
+  )
+  const [unselectedCreators, dispatchUnselected] = useContext(
+    UnselectedCreatorContext,
+  )
 
   const handleRemoveFromUnselected = (creator: Creator) => {
     dispatchSelected({ type: 'ADD_TO_SELECTED', creator })

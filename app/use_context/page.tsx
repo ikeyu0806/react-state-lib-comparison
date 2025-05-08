@@ -7,7 +7,10 @@ import CandidatesInsights from '@/components/UseContextDemo/CandidatesInsights'
 import { Creator } from '@/types/creator'
 
 // Reducer関数
-const creatorReducer = (state: Creator[], action: { type: string; creator: Creator }) => {
+const creatorReducer = (
+  state: Creator[],
+  action: { type: string; creator: Creator },
+) => {
   switch (action.type) {
     case 'ADD_TO_SELECTED':
       return [...state, action.creator]
@@ -41,16 +44,20 @@ export default function UseContextPage() {
 
   const [unselectedCreators, dispatchUnselected] = useReducer(
     creatorReducer,
-    initialUnselectedCreators
+    initialUnselectedCreators,
   )
   const [selectedCreators, dispatchSelected] = useReducer(
     creatorReducer,
-    initialSelectedCreators
+    initialSelectedCreators,
   )
 
   return (
-    <UnselectedCreatorContext.Provider value={[unselectedCreators, dispatchUnselected]}>
-      <SelectedCreatorContext.Provider value={[selectedCreators, dispatchSelected]}>
+    <UnselectedCreatorContext.Provider
+      value={[unselectedCreators, dispatchUnselected]}
+    >
+      <SelectedCreatorContext.Provider
+        value={[selectedCreators, dispatchSelected]}
+      >
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 my-4 p-4">
             <h1 className="text-2xl font-bold">UseContext Demo</h1>
