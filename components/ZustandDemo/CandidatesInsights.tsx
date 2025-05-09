@@ -2,9 +2,7 @@ import React from 'react'
 import { useCreatorStore } from '@/store/zustand_demo/creator_store'
 
 export default function CandidatesInsights() {
-  const selectedCreators = useCreatorStore(
-    (state) => state.selectedCreators,
-  )
+  const selectedCreators = useCreatorStore((state) => state.selectedCreators)
   return (
     <div className="my-4 p-4 bg-white border border-gray-200 rounded-lg shadow-md">
       <div>

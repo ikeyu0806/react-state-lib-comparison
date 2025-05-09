@@ -25,13 +25,13 @@ export const useCreatorStore = create<CreatorState>((set) => ({
     set((state) => ({
       selectedCreators: [...state.selectedCreators, creator],
       unselectedCreators: state.unselectedCreators.filter(
-        (c) => c.name !== creator.name
+        (c) => c.name !== creator.name,
       ),
     })),
   removeFromSelected: (creator) =>
     set((state) => ({
       selectedCreators: state.selectedCreators.filter(
-        (c) => c.name !== creator.name
+        (c) => c.name !== creator.name,
       ),
       unselectedCreators: [...state.unselectedCreators, creator],
     })),
