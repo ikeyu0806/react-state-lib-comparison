@@ -1,24 +1,24 @@
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
 import { useAtom } from 'jotai'
-import { unselectedCreatorsAtom } from '@/store/jotai/creator_atoms'
+import { selectedCreatorsAtom } from '@/store/jotai/creator_atoms'
 
-export default function CreatorLists() {
-  const [unselectedCreators, setUnselectedCreators] = useAtom(unselectedCreatorsAtom)
+export default function CandidatesLists() {
+  const [selectedCreators, setSelectedCreators] = useAtom(selectedCreatorsAtom)
   return (
     <div className="my-4">
-      {unselectedCreators.map((creator: Creator) => (
+      {selectedCreators.map((creator: Creator) => (
         <CreatorCard
           key={creator.name}
           name={creator.name}
           followers={creator.followers}
           totalLikes={creator.totalLikes}
           onClick={() => {
-            setUnselectedCreators((prev) =>
+            setSelectedCreators((prev) =>
               prev.filter((c) => c.name !== creator.name),
             )
           }}
-          isSelected={false}
+          isSelected={true}
         />
       ))}
     </div>
