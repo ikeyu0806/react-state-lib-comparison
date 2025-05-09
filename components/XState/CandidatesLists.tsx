@@ -3,22 +3,22 @@ import CreatorCard from './CreatorCard'
 import { useMachine } from '@xstate/react'
 import { creatorMachine } from '@/store/xstate/creator_service'
 
-export default function CreatorLists() {
+export default function CandidatesLists() {
   const [current, send] = useMachine(creatorMachine)
-  const selectCreator = (creator: Creator) => {
-    send({ type: 'ADD_TO_SELECTED', creator })
+  const unselectCreator = (creator: Creator) => {
+    send({ type: 'REMOVE_FROM_SELECTED', creator })
   }
 
   return (
     <div className="my-4">
-      {current.context.unselectedCreators.map((creator: Creator) => (
+      {current.context.selectedCreators.map((creator: Creator) => (
         <CreatorCard
           key={creator.name}
           name={creator.name}
           followers={creator.followers}
           totalLikes={creator.totalLikes}
-          onClick={() => selectCreator(creator)}
-          isSelected={false}
+          onClick={() => unselectCreator(creator)}
+          isSelected={true}
         />
       ))}
     </div>

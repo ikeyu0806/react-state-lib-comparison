@@ -35,5 +35,21 @@ export const creatorMachine = createMachine({
         },
       },
     },
+    unselection: {
+      on: {
+        REMOVE_FROM_SELECTED: {
+          actions: assign({
+            selectedCreators: (_, event: any) => [
+              ...event.selectedCreators,
+              event.creator,
+            ],
+            unselectedCreators: (_, event: any) =>
+              event.unselectedCreators.filter(
+                (creator: Creator) => creator.name !== event.creator.name,
+              ),
+          }),
+        },
+      },
+    }
   },
 })
