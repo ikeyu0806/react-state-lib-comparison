@@ -1,41 +1,38 @@
 import { create } from 'zustand'
-
-interface Creator {
-  name: string
-}
-
-type Action =
-  | { type: 'ADD_TO_SELECTED'; creator: Creator }
-  | { type: 'REMOVE_FROM_SELECTED'; creator: Creator }
+import { Creator } from '@/types/creator'
 
 interface CreatorState {
   selectedCreators: Creator[]
   unselectedCreators: Creator[]
-  dispatch: (action: Action) => void
+  addToSelected: (creator: Creator) => void
+  removeFromSelected: (creator: Creator) => void
 }
 
 export const useCreatorStore = create<CreatorState>((set) => ({
-  selectedCreators: [],
-  unselectedCreators: [],
-  dispatch: (action) =>
-    set((state) => {
-      switch (action.type) {
-        case 'ADD_TO_SELECTED':
-          return {
-            selectedCreators: [...state.selectedCreators, action.creator],
-            unselectedCreators: state.unselectedCreators.filter(
-              (creator) => creator.name !== action.creator.name,
-            ),
-          }
-        case 'REMOVE_FROM_SELECTED':
-          return {
-            selectedCreators: state.selectedCreators.filter(
-              (creator) => creator.name !== action.creator.name,
-            ),
-            unselectedCreators: [...state.unselectedCreators, action.creator],
-          }
-        default:
-          return state
-      }
-    }),
+  selectedCreators: [
+    { name: 'クリエイター1', followers: 1000, totalLikes: 10000 },
+    { name: 'クリエイター2', followers: 2000, totalLikes: 20000 },
+    { name: 'クリエイター3', followers: 3000, totalLikes: 30000 },
+    { name: 'クリエイター4', followers: 4000, totalLikes: 40000 },
+  ],
+  unselectedCreators: [
+    { name: 'クリエイター5', followers: 5000, totalLikes: 50000 },
+    { name: 'クリエイター6', followers: 6000, totalLikes: 60000 },
+    { name: 'クリエイター7', followers: 7000, totalLikes: 70000 },
+    { name: 'クリエイター8', followers: 8000, totalLikes: 80000 },
+  ],
+  addToSelected: (creator) =>
+    set((state) => ({
+      selectedCreators: [...state.selectedCreators, creator],
+      unselectedCreators: state.unselectedCreators.filter(
+        (c) => c.name !== creator.name
+      ),
+    })),
+  removeFromSelected: (creator) =>
+    set((state) => ({
+      selectedCreators: state.selectedCreators.filter(
+        (c) => c.name !== creator.name
+      ),
+      unselectedCreators: [...state.unselectedCreators, creator],
+    })),
 }))
