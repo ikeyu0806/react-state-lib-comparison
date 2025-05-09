@@ -1,10 +1,12 @@
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
 import { useAtom } from 'jotai'
-import { unselectedCreatorsAtom } from '@/store/jotai/creator_atoms'
+import { selectedCreatorsAtom, unselectedCreatorsAtom } from '@/store/jotai/creator_atoms'
 
 export default function CreatorLists() {
+  const [selectedCreators, setSelectedCreators] = useAtom(selectedCreatorsAtom)
   const [unselectedCreators, setUnselectedCreators] = useAtom(unselectedCreatorsAtom)
+
   return (
     <div className="my-4">
       {unselectedCreators.map((creator: Creator) => (
@@ -14,6 +16,7 @@ export default function CreatorLists() {
           followers={creator.followers}
           totalLikes={creator.totalLikes}
           onClick={() => {
+            setSelectedCreators((prev) => [...prev, creator])
             setUnselectedCreators((prev) =>
               prev.filter((c) => c.name !== creator.name),
             )
