@@ -1,8 +1,8 @@
 'use client'
 
-import CreatorLists from '@/components/ZustandDemo/CreatorLists'
-import CandidatesLists from '@/components/ZustandDemo/CandidatesLists'
-import CandidatesInsights from '@/components/ZustandDemo/CandidatesInsights'
+import CreatorLists from '@/components/Zustand/CreatorLists'
+import CandidatesLists from '@/components/Zustand/CandidatesLists'
+import CandidatesInsights from '@/components/Zustand/CandidatesInsights'
 
 export default function ZustandPage() {
   return (

@@ -1,9 +1,9 @@
 'use client'
 
 import { createContext, useReducer } from 'react'
-import CreatorLists from '@/components/UseContextDemo/CreatorLists'
-import CandidatesLists from '@/components/UseContextDemo/CandidatesLists'
-import CandidatesInsights from '@/components/UseContextDemo/CandidatesInsights'
+import CreatorLists from '@/components/UseContext/CreatorLists'
+import CandidatesLists from '@/components/UseContext/CandidatesLists'
+import CandidatesInsights from '@/components/UseContext/CandidatesInsights'
 import { Creator } from '@/types/creator'
 
 // Reducer関数
@@ -29,7 +29,7 @@ export const UnselectedCreatorContext = createContext<
   [Creator[], React.Dispatch<Action>]
 >([[], () => {}])
 export const SelectedCreatorContext = createContext<
-  [Creator[], React.Dispatch<Action>]
+  [Creator[], React.Dispatch<any>]
 >([[], () => {}])
 
 export default function UseContextPage() {
