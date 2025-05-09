@@ -11,14 +11,6 @@ export default function CreatorLists() {
   const addToSelected = useCreatorStore((state) => state.addToSelected)
   return (
     <div className="my-4">
-      {/* <CreatorCard
-        key={'creator.name'}
-        name={'creator.name'}
-        followers={100}
-        totalLikes={100}
-        onClick={() => console.log('Clicked')}
-        isSelected={false}
-      /> */}
       {unselectedCreators.map((creator: Creator) => (
         <CreatorCard
           key={creator.name}
