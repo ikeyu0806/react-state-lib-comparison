@@ -1,6 +1,7 @@
 'use client'
 
 import CreatorLists from "@/components/ZustandDemo/CreatorLists"
+import CandidatesLists from "@/components/ZustandDemo/CandidatesLists"
 
 export default function ZustandPage() {
   return (
@@ -16,10 +17,10 @@ export default function ZustandPage() {
           <div className="col-span-4 my-4 p-4">
             <CreatorLists />
           </div>
-          {/* <div className="col-span-4 my-4 p-4">
+          <div className="col-span-4 my-4 p-4">
             <CandidatesLists />
           </div>
-          <div className="col-span-4 my-4 p-4">
+          {/* <div className="col-span-4 my-4 p-4">
             <CandidatesInsights />
           </div> */}
         </div>
