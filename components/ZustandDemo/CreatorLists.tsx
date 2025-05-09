@@ -1,5 +1,3 @@
-// CandidatesLists.tsx
-
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
 import { useCreatorStore } from '@/store/zustand_demo/creator_store'

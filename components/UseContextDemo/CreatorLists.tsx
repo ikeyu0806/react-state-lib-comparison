@@ -1,5 +1,3 @@
-// CandidatesLists.tsx
-
 import { useContext } from 'react'
 import {
   SelectedCreatorContext,
