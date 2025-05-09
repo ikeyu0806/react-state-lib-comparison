@@ -1,7 +1,10 @@
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
 import { useAtom, useSetAtom } from 'jotai'
-import { selectedCreatorsAtom, unselectedCreatorsAtom } from '@/store/jotai/creator_atoms'
+import {
+  selectedCreatorsAtom,
+  unselectedCreatorsAtom,
+} from '@/store/jotai/creator_atoms'
 
 export default function CandidatesLists() {
   const [selectedCreators, setSelectedCreators] = useAtom(selectedCreatorsAtom)
