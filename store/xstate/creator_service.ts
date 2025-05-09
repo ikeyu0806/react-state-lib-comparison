@@ -1,8 +1,9 @@
 import { createMachine, assign, AnyEventObject } from 'xstate'
 import { Creator } from '@/types/creator'
 
-const creatorMachine = createMachine({
+export const creatorMachine = createMachine({
   id: 'creator',
+  initial: 'selection',
   context: {
     selectedCreators: [
       { name: 'クリエイター5', followers: 5000, totalLikes: 50000 },
@@ -36,4 +37,3 @@ const creatorMachine = createMachine({
     },
   },
 })
-export default creatorMachine
