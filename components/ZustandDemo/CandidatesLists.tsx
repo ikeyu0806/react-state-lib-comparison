@@ -1,6 +1,6 @@
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
-import { useCreatorStore } from '@/store/zustand_demo/creator_store'
+import { useCreatorStore } from '@/store/zustand/creator_store'
 
 export default function CandidatesLists() {
   const selectedCreators = useCreatorStore((state) => state.selectedCreators)

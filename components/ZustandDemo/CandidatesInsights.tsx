@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCreatorStore } from '@/store/zustand_demo/creator_store'
+import { useCreatorStore } from '@/store/zustand/creator_store'
 
 export default function CandidatesInsights() {
   const selectedCreators = useCreatorStore((state) => state.selectedCreators)
