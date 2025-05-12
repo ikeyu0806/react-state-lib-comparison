@@ -28,7 +28,9 @@ const RecruitmentStatusComponent = () => {
   return (
     <div className="p-4">
       <div className="mb-4">
-        <h2 className="text-lg font-semibold">Current Status: {current.context.status}</h2>
+        <h2 className="text-lg font-semibold">
+          Current Status: {current.context.status}
+        </h2>
       </div>
 
       <div className="space-x-4">
