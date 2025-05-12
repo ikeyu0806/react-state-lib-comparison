@@ -2,6 +2,7 @@
 
 import CreatorLists from '@/components/Jotai/CreatorLists'
 import CandidatesLists from '@/components/Jotai/CandidatesLists'
+import CandidatesInsights from '@/components/Jotai/CandidatesInsights'
 
 export default function ZustandPage() {
   return (
@@ -20,9 +21,9 @@ export default function ZustandPage() {
       <div className="col-span-4 my-4 p-4">
         <CandidatesLists />
       </div>
-      {/* <div className="col-span-4 my-4 p-4">
+      <div className="col-span-4 my-4 p-4">
         <CandidatesInsights />
-      </div> */}
+      </div>
     </div>
   )
 }
