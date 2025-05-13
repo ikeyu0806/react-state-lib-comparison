@@ -50,7 +50,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
 }
 
 export default {
-  title: 'Components/CreatorLists',
+  title: 'Components/Zustand/CreatorLists',
   component: CreatorLists,
   decorators: [
     (Story: React.FC) => (
