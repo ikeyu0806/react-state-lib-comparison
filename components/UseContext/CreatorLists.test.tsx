@@ -4,11 +4,9 @@ import { describe, test, expect, vi } from 'vitest'
 import CreatorLists from './CreatorLists'
 import { SelectedCreatorContext, UnselectedCreatorContext } from '@/app/use_context/page'
 
-// コンテキストのモック
 const mockDispatchSelected = vi.fn()
 const mockDispatchUnselected = vi.fn()
 
-// モックデータ
 const unselectedCreators = [
   { name: 'クリエイター1', followers: 1000, totalLikes: 5000 },
   { name: 'クリエイター2', followers: 1500, totalLikes: 6000 },
@@ -24,7 +22,6 @@ describe('CreatorLists', () => {
       </SelectedCreatorContext.Provider>
     )
 
-    // クリエイター名が表示されていることを確認
     expect(screen.getByText('クリエイター1')).toBeInTheDocument()
     expect(screen.getByText('クリエイター2')).toBeInTheDocument()
   })
@@ -38,11 +35,9 @@ describe('CreatorLists', () => {
       </SelectedCreatorContext.Provider>
     )
 
-    // クリエイター1のカードをクリック
     const creator1Card = screen.getByText('クリエイター1')
     fireEvent.click(creator1Card)
 
-    // dispatchSelected と dispatchUnselected が呼ばれたことを確認
     expect(mockDispatchSelected).toHaveBeenCalledWith({
       type: 'ADD_TO_SELECTED',
       creator: unselectedCreators[0],
