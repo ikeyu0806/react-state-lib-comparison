@@ -18,12 +18,12 @@ vi.mock('@/store/zustand/creator_store', () => ({
       ],
       selectedCreators: [],
       addToSelected: vi.fn(),
-      removeFromSelected: vi.fn()
+      removeFromSelected: vi.fn(),
     }
-    
+
     // セレクタを適用して値を返す
     return selector(state)
-  }
+  },
 }))
 
 describe('CreatorLists', () => {
