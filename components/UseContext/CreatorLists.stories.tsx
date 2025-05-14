@@ -1,7 +1,10 @@
 import React, { ReactNode } from 'react'
 import { StoryObj, Meta } from '@storybook/react'
 import CreatorLists from './CreatorLists'
-import { SelectedCreatorContext, UnselectedCreatorContext } from '@/app/use_context/page'
+import {
+  SelectedCreatorContext,
+  UnselectedCreatorContext,
+} from '@/app/use_context/page'
 import { Creator } from '@/types/creator'
 
 const meta = {
@@ -37,7 +40,9 @@ const mockDispatchUnselected = () => {}
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
     <SelectedCreatorContext.Provider value={[[], mockDispatchSelected]}>
-      <UnselectedCreatorContext.Provider value={[mockUnselectedCreators, mockDispatchUnselected]}>
+      <UnselectedCreatorContext.Provider
+        value={[mockUnselectedCreators, mockDispatchUnselected]}
+      >
         {children}
       </UnselectedCreatorContext.Provider>
     </SelectedCreatorContext.Provider>

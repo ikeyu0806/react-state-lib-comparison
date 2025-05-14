@@ -8,9 +8,9 @@ import { Creator } from '@/types/creator'
 
 const meta = {
   component: CreatorLists,
-    parameters: {},
-    tags: ['autodocs'],
-    argTypes: {}
+  parameters: {},
+  tags: ['autodocs'],
+  argTypes: {},
 } satisfies Meta<typeof CreatorLists>
 
 type Story = StoryObj<typeof meta>

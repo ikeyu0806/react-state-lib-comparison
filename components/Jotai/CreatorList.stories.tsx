@@ -12,9 +12,9 @@ import { Creator } from '@/types/creator'
 
 const meta = {
   component: CreatorLists,
-    parameters: {},
-    tags: ['autodocs'],
-    argTypes: {}
+  parameters: {},
+  tags: ['autodocs'],
+  argTypes: {},
 } satisfies Meta<typeof CreatorLists>
 
 type Story = StoryObj<typeof meta>
@@ -41,9 +41,7 @@ const mockUnselectedCreators = [
 // Storybook 用のラッパーコンポーネント
 const Wrapper = ({ children }: { children: ReactNode }) => {
   // Jotai ストアのモック
-  const [_, setUnselectedCreators] = useAtom(
-    unselectedCreatorsAtom,
-  )
+  const [_, setUnselectedCreators] = useAtom(unselectedCreatorsAtom)
   setUnselectedCreators(mockUnselectedCreators)
 
   return <div>{children}</div>

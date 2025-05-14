@@ -2,7 +2,10 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, test, expect, vi } from 'vitest'
 import CreatorLists from './CreatorLists'
-import { SelectedCreatorContext, UnselectedCreatorContext } from '@/app/use_context/page'
+import {
+  SelectedCreatorContext,
+  UnselectedCreatorContext,
+} from '@/app/use_context/page'
 
 const mockDispatchSelected = vi.fn()
 const mockDispatchUnselected = vi.fn()
@@ -16,10 +19,12 @@ describe('CreatorLists', () => {
   test('should render CreatorCards for each unselected creator', () => {
     render(
       <SelectedCreatorContext.Provider value={[[], mockDispatchSelected]}>
-        <UnselectedCreatorContext.Provider value={[unselectedCreators, mockDispatchUnselected]}>
+        <UnselectedCreatorContext.Provider
+          value={[unselectedCreators, mockDispatchUnselected]}
+        >
           <CreatorLists />
         </UnselectedCreatorContext.Provider>
-      </SelectedCreatorContext.Provider>
+      </SelectedCreatorContext.Provider>,
     )
 
     expect(screen.getByText('クリエイター1')).toBeInTheDocument()
@@ -29,10 +34,12 @@ describe('CreatorLists', () => {
   test('should call dispatchSelected and dispatchUnselected when a creator is clicked', () => {
     render(
       <SelectedCreatorContext.Provider value={[[], mockDispatchSelected]}>
-        <UnselectedCreatorContext.Provider value={[unselectedCreators, mockDispatchUnselected]}>
+        <UnselectedCreatorContext.Provider
+          value={[unselectedCreators, mockDispatchUnselected]}
+        >
           <CreatorLists />
         </UnselectedCreatorContext.Provider>
-      </SelectedCreatorContext.Provider>
+      </SelectedCreatorContext.Provider>,
     )
 
     const creator1Card = screen.getByText('クリエイター1')

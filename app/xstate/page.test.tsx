@@ -4,10 +4,7 @@ import RecruitmentStatusComponent from './page'
 
 vi.mock('@xstate/react', () => {
   return {
-    useMachine: () => [
-      { context: { status: 'unpublished' } },
-      vi.fn()
-    ]
+    useMachine: () => [{ context: { status: 'unpublished' } }, vi.fn()],
   }
 })
 
