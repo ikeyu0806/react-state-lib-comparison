@@ -40,4 +40,19 @@ describe('RecruitmentStatusComponent', () => {
     render(<RecruitmentStatusComponent />)
     expect(screen.getByText('Current Status: recruiting')).toBeInTheDocument()
   })
+
+  test('should call publish function when Publish button is clicked', () => {
+    const sendMock = vi.fn()
+    vi.mocked(useMachine).mockReturnValue([
+      // @ts-ignore
+      { context: { status: 'unpublished' } },
+      sendMock,
+    ])
+
+    render(<RecruitmentStatusComponent />)
+    const button = screen.getByText('Publish')
+    button.click()
+
+    expect(sendMock).toHaveBeenCalledWith({ type: 'PUBLISH' })
+  })
 })
