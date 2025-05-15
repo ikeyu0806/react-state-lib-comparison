@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/nextjs'
 
 const config: StorybookConfig = {
   stories: [
+    '../app/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     '../components/**/*.mdx',
     '../components/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
