@@ -15,12 +15,14 @@
     "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "@xstate/react": "^5.0.3",
     "jotai": "^2.12.4",
     "next": "15.3.2",
     "prettier": "^3.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "xstate": "^5.19.2",
     "zustand": "^5.0.4"
   },
