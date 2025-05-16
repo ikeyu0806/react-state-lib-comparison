@@ -1,10 +1,11 @@
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/redux/store'
 import { removeFromSelected } from '@/redux/creatorSlice'
 
 export default function CandidatesLists() {
+  const dispatch = useDispatch()
   const selectedCreators = useSelector(
     (state: RootState) => state.creator.selectedCreators,
   )
@@ -16,7 +17,7 @@ export default function CandidatesLists() {
           name={creator.name}
           followers={creator.followers}
           totalLikes={creator.totalLikes}
-          onClick={() => removeFromSelected(creator)}
+          onClick={() => dispatch(removeFromSelected(creator))}
           isSelected={true}
         />
       ))}

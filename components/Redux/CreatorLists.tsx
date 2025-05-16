@@ -1,10 +1,11 @@
 import { Creator } from '@/types/creator'
 import CreatorCard from './CreatorCard'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/redux/store'
 import { addToSelected } from '@/redux/creatorSlice'
 
 export default function CreatorLists() {
+  const dispatch = useDispatch()
   const unselectedCreators = useSelector(
     (state: RootState) => state.creator.unselectedCreators,
   )
@@ -16,7 +17,7 @@ export default function CreatorLists() {
           name={creator.name}
           followers={creator.followers}
           totalLikes={creator.totalLikes}
-          onClick={() => addToSelected(creator)}
+          onClick={() => dispatch(addToSelected(creator))}
           isSelected={false}
         />
       ))}
