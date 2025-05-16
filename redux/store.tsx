@@ -4,7 +4,7 @@ import creatorReducer from './creatorSlice'
 export const store = configureStore({
   reducer: {
     creator: creatorReducer,
-  }
+  },
 })
 
 export const makeStore = () => {
