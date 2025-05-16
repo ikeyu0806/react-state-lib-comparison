@@ -8,7 +8,7 @@ import StoreProvider from '@/app/redux/StoreProvider'
 vi.mock('react-redux', () => ({
   useDispatch: vi.fn(),
   useSelector: vi.fn(),
-  Provider: ({ children }: { children: React.ReactNode }) => children
+  Provider: ({ children }: { children: React.ReactNode }) => children,
 }))
 
 const mockUnselectedCreators = [
@@ -19,11 +19,11 @@ const mockUnselectedCreators = [
 describe('CreatorLists', () => {
   test('should render CreatorCards for each unselected creator', () => {
     vi.mocked(useSelector).mockReturnValue(mockUnselectedCreators)
-    
+
     render(
       <StoreProvider>
         <CreatorLists />
-      </StoreProvider>
+      </StoreProvider>,
     )
 
     expect(screen.getByText('クリエイター1')).toBeInTheDocument()
