@@ -21,11 +21,11 @@ export default function ReduxPage() {
           <CreatorLists />
         </div>
         <div className="col-span-4 my-4 p-4">
-        <CandidatesLists />
-      </div>
+          <CandidatesLists />
+        </div>
         <div className="col-span-4 my-4 p-4">
-        <CandidatesInsights />
-      </div>
+          <CandidatesInsights />
+        </div>
       </div>
     </StoreProvider>
   )
