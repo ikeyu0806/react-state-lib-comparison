@@ -2,7 +2,7 @@
 
 import StoreProvider from './StoreProvider'
 import CreatorLists from '@/components/Redux/CreatorLists'
-// import CandidatesLists from '@/components/Redux/CandidatesLists'
+import CandidatesLists from '@/components/Redux/CandidatesLists'
 // import CandidatesInsights from '@/components/Redux/CandidatesInsights'
 
 export default function ReduxPage() {
@@ -20,9 +20,9 @@ export default function ReduxPage() {
         <div className="col-span-4 my-4 p-4">
           <CreatorLists />
         </div>
-        {/* <div className="col-span-4 my-4 p-4">
+        <div className="col-span-4 my-4 p-4">
         <CandidatesLists />
-      </div> */}
+      </div>
         {/* <div className="col-span-4 my-4 p-4">
         <CandidatesInsights />
       </div> */}
