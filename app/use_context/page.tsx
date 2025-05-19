@@ -29,7 +29,7 @@ export const UnselectedCreatorContext = createContext<
   [Creator[], React.Dispatch<Action>]
 >([[], () => {}])
 export const SelectedCreatorContext = createContext<
-  [Creator[], React.Dispatch<any>]
+  [Creator[], React.Dispatch<Action>]
 >([[], () => {}])
 
 export default function UseContextPage() {
