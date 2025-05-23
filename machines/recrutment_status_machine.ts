@@ -66,15 +66,6 @@ const recruitmentMachine = createMachine({
       },
     },
     cancelled: {
-      on: {
-        PUBLISH: {
-          target: 'recruiting', // キャンセル → 募集中
-          actions: assign({
-            status: () => 'recruiting' as RecruitmentStatus,
-            startDate: () => new Date(), // 現在の日付を開始日として設定
-          }),
-        },
-      },
       type: 'final', // キャンセル状態も最終状態
     },
     ended: {
